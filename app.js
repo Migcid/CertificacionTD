@@ -11,13 +11,6 @@ app.use(express.urlencoded({extended:true}));
 let PORT = process.env.PORT || 3000;
 
 
-// RUTAS DE VISTAS
-
-app.get("/", (req, res) => {
-    res.render("home")
-})
-
-
 // inicio configuración handlebars
 
 const hbs = create({
@@ -28,9 +21,15 @@ const hbs = create({
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
-app.set("views", path.resolve(__dirname, "./views"));
+app.set("views",  "./views");
 
 //fin handlebars configuracion
+
+// RUTAS DE VISTAS
+
+app.get("/", (req, res) => {
+    res.render("home")
+})
 
 
 app.listen(PORT, () => console.log("http://localhost:"+PORT));

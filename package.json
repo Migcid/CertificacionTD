@@ -1,0 +1,21 @@
+{
+  "name": "certificacion",
+  "version": "1.0.0",
+  "description": "certificacion talento digital",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "miguelCid",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-fileupload": "^1.4.0",
+    "express-handlebars": "^7.0.4",
+    "pg": "^8.10.0",
+    "uui": "^1.0.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

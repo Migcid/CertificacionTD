@@ -2,6 +2,7 @@ const express = require('express');
 const { create } = require('express-handlebars')
 const path = require('path');
 const app = express();
+const {getPublicaciones} = require('./consultas')
 
 //MIDDLEWARE
 
@@ -27,8 +28,22 @@ app.set("views",  "./views");
 
 // RUTAS DE VISTAS
 
-app.get("/", (req, res) => {
-    res.render("home")
+app.get("/", async (req, res) => {
+    try{
+        let publicaciones = await getPublicaciones();
+        console.log("publicaciones_noticias", publicaciones)
+        
+        res.render("home", {
+            publicaciones
+        })
+    } catch(error) {
+        console.log(error)
+        res.render("home", {
+            error: "No se cargaron las noticias"
+        })
+
+    }
+    
 })
 
 

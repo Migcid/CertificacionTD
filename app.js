@@ -2,12 +2,14 @@ const express = require('express');
 const { create } = require('express-handlebars')
 const path = require('path');
 const app = express();
+const moment = require('moment')
 const {getPublicaciones} = require('./consultas')
 
 //MIDDLEWARE
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
+app.use('/public', express.static('public'));
 
 let PORT = process.env.PORT || 3000;
 

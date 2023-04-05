@@ -20,7 +20,7 @@ const pool = new Pool({
 // PUBLICACIONES
 
 const getPublicaciones = async () => {
-    let consulta = `SELECT titulo, contenido, fecha, imagen FROM publicaciones_noticias`
+    let consulta = `SELECT titulo, contenido, fecha, imagen FROM publicaciones_noticias order by fecha`
     let resultado = await pool.query(consulta);
         return resultado.rows;
 }
